@@ -1,0 +1,64 @@
+{
+  "name": "value-investing-agent",
+  "version": "1.0.0",
+  "description": "AI-powered MCP server for value investors. Analyze stocks using principles from Benjamin Graham and Warren Buffett.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "value-investing-agent": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "dev": "tsup src/index.ts --watch",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "lint": "eslint src/",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "value-investing",
+    "stock-analysis",
+    "claude",
+    "ai-agent",
+    "graham",
+    "buffett",
+    "dcf",
+    "intrinsic-value",
+    "margin-of-safety"
+  ],
+  "author": "danielchu97",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielchu97/Value-Investing-Agent.git"
+  },
+  "homepage": "https://github.com/danielchu97/Value-Investing-Agent#readme",
+  "bugs": {
+    "url": "https://github.com/danielchu97/Value-Investing-Agent/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "yahoo-finance2": "^2.11.0",
+    "rss-parser": "^3.13.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.6.0",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}

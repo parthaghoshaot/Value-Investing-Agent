@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "updatedAt": "2024-01-01T00:00:00Z",
+  "stocks": [],
+  "groups": [
+    { "id": "tech", "name": "科技", "nameEn": "Technology" },
+    { "id": "consumer", "name": "消费", "nameEn": "Consumer" },
+    { "id": "finance", "name": "金融", "nameEn": "Finance" },
+    { "id": "healthcare", "name": "医疗", "nameEn": "Healthcare" },
+    { "id": "industrial", "name": "工业", "nameEn": "Industrial" },
+    { "id": "energy", "name": "能源", "nameEn": "Energy" },
+    { "id": "other", "name": "其他", "nameEn": "Other" }
+  ],
+  "settings": {
+    "maxStocks": 100,
+    "defaultGroup": "other"
+  }
+}
