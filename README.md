@@ -16,12 +16,12 @@ An AI-powered MCP server for value investors. Analyze stocks using principles fr
 
 ## Features
 
-- Real-time Stock Data - Quotes, financials, and company profiles
-- Intrinsic Value Calculation - DCF model and Graham Number
-- Moat Analysis - Evaluate competitive advantages
-- News Aggregation - Stay informed on your watchlist
-- Report Generation - Daily summaries and deep analysis reports
-- Pluggable Data Sources - Easy to add your own data providers
+- 📊 **Real-time Stock Data** - Quotes, financials, and company profiles
+- 🧮 **Intrinsic Value Calculation** - DCF model and Graham Number
+- 🏰 **Moat Analysis** - Evaluate competitive advantages
+- 📰 **News Aggregation** - Stay informed on your watchlist
+- 📝 **Report Generation** - Daily summaries and deep analysis reports
+- 🔌 **Pluggable Data Sources** - Easy to add your own data providers
 
 ## Quick Start
 
