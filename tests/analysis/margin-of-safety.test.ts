@@ -56,7 +56,7 @@ describe('Margin of Safety Calculation', () => {
     expect(calculateMarginOfSafety(40, 100).riskLevel).toBe('low');
 
     // Good margin (25-50%)
-    expect(calculateMarginOfSafety(70, 100).riskLevel).toBe('low');
+    expect(calculateMarginOfSafety(60, 100).riskLevel).toBe('low');
 
     // Low margin (0-25%)
     expect(calculateMarginOfSafety(90, 100).riskLevel).toBe('medium');

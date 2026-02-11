@@ -21,6 +21,29 @@ import { toolDefinitions, handleToolCall } from './tools/index.js';
 
 const logger = createLogger('server');
 
+const REDACTED_VALUE = '***REDACTED***';
+const SENSITIVE_KEY_PATTERN = /(apiKey|apikey|token|secret|password)/i;
+
+function redactSecrets(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map((item) => redactSecrets(item));
+  }
+
+  if (value && typeof value === 'object') {
+    const entries = Object.entries(value as Record<string, unknown>);
+    return entries.reduce<Record<string, unknown>>((acc, [key, val]) => {
+      if (SENSITIVE_KEY_PATTERN.test(key)) {
+        acc[key] = REDACTED_VALUE;
+      } else {
+        acc[key] = redactSecrets(val);
+      }
+      return acc;
+    }, {});
+  }
+
+  return value;
+}
+
 /**
  * Create and configure the MCP server
  */
@@ -48,7 +71,7 @@ export function createServer(): Server {
   // Register tool call handler
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
-    logger.info(`Tool call: ${name}`, args);
+    logger.info(`Tool call: ${name}`, redactSecrets(args));
 
     try {
       const result = await handleToolCall(name, args || {});
@@ -86,7 +109,7 @@ export async function initializeServer(): Promise<Server> {
 
   // Load configuration
   const config = loadConfig();
-  logger.debug('Configuration loaded', config);
+  logger.debug('Configuration loaded', redactSecrets(config));
 
   // Initialize provider
   try {
